@@ -16,6 +16,7 @@ body {
     align-items: center;
     overflow-x: hidden;
     font-family: 'Cinzel', serif;
+    padding: 20px;
 }
 
 /* ==========================================================================
@@ -78,10 +79,6 @@ body {
     transform: rotateY(-180deg);
 }
 
-.page.last-page {
-    cursor: pointer;
-}
-
 /* ==========================================================================
    3. SECCIÓN MAPA INTERACTIVO Y PINES
    ========================================================================== */
@@ -104,7 +101,7 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #cfa34b; /* Tono oro a juego con tu invitación */
+    background: #cfa34b; 
     border: 2px solid #ffffff;
     transform: translate(-50%, -50%);
     z-index: 20;
@@ -139,7 +136,7 @@ body {
 .tooltip-photo {
     position: absolute;
     left: 50%;
-    bottom: 28px; /* Separación prudente del pin */
+    bottom: 28px;
     width: 140px;
     height: 100px;
     border-radius: 6px;
@@ -149,7 +146,7 @@ body {
     transform-origin: bottom center;
     transition: 0.35s cubic-bezier(.17, .88, .32, 1.25);
     z-index: 30;
-    pointer-events: none; /* Evita micro-parpadeos molestos al mover el mouse */
+    pointer-events: none;
 }
 
 .tooltip-photo img {
@@ -158,14 +155,26 @@ body {
     object-fit: cover;
 }
 
-/* Mostrar foto al pasar el cursor sobre el pin */
+/* Mostrar foto al pasar el cursor sobre el pin (Escritorio) */
 .country-pin:hover .tooltip-photo {
     transform: translateX(-50%) scale(1);
 }
 
 /* ==========================================================================
-   4. CONTADOR REGRESIVO
+   4. CONTADOR REGRESIVO Y CONTENEDORES INTERNOS
    ========================================================================== */
+.countdown-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.countdown-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .countdown-container {
     position: absolute;
     top: 45%;
@@ -201,7 +210,7 @@ body {
 }
 
 /* ==========================================================================
-   5. BOTONES DE ACCIÓN Y CONTROLES INTERNOS
+   5. BOTONES DE ACCIÓN Y CONTROLES
    ========================================================================== */
 .action-buttons {
     position: absolute;
@@ -210,6 +219,7 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 22px;
+    z-index: 10;
 }
 
 .btn-action {
@@ -219,10 +229,12 @@ body {
     display: block;
     cursor: pointer;
     transition: .3s;
+    background-color: #ffffff00; /* Color base temporal si no hay imagen */
 }
 
 .btn-action:hover {
-    background: rgba(255, 255, 255, .2);
+    transform: scale(1.1);
+    background-color: #feffff00;
 }
 
 /* Botón de música global */
@@ -249,6 +261,7 @@ body {
 
 .controls {
     margin-top: 15px;
+    z-index: 10;
 }
 
 .controls button {
@@ -271,20 +284,106 @@ body {
    6. RESPONSIVE / ADAPTABILIDAD A MÓVILES
    ========================================================================== */
 @media (max-width: 900px) {
+    body {
+        /* Un poco de padding arriba/abajo para que respire en celulares */
+        padding: 60px 10px 20px 10px; 
+        justify-content: flex-start;
+    }
+
+    /* Redimensionamos el contenedor basado en una sola página vertical */
     .book-container {
-        width: 100vw;
-        height: calc(90vw * 1.42);
+        width: 320px;   /* Ancho estándar ideal para celulares */
+        height: 457px;  /* Mantiene la proporción original (840x600) */
+        perspective: 1500px;
+        margin-bottom: 10px;
     }
 
     .book {
-        width: 90vw;
-        height: calc(90vw * 1.42);
+        width: 320px;
+        height: 457px;
     }
-    
+
+    /* Modificamos el origen de la animación para que gire sobre su propio eje central 
+       o simule un cuaderno en pantallas pequeñas */
+    .page {
+        transform-origin: left center;
+    }
+
+    /* --- Ajustes del Mapa en Celulares --- */
+    .country-pin {
+        width: 14px;  /* Pines ligeramente más pequeños */
+        height: 14px;
+    }
+
+    /* Hacemos que los Tooltips (fotos) reaccionen al toque (touch) */
+    .tooltip-photo {
+        width: 110px;
+        height: 80px;
+        bottom: 22px;
+    }
+
+    /* --- Ajustes de la sección Confirmación --- */
+    .countdown-container {
+        width: 90%;
+        top: 50%;
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .time-box {
+        min-width: 35px;
+    }
+
+    .time-box span {
+        font-size: 16px;
+    }
+
+    .time-box small {
+        font-size: 8px;
+    }
+
+    .action-buttons {
+        top: 15px; /* Subimos un poco los botones para que no pisen el contador */
+        gap: 15px;
+    }
+
+    .btn-action {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* --- Interfaz General Móvil --- */
     #music-toggle {
         top: 10px;
         right: 10px;
-        padding: 8px 12px;
-        font-size: 12px;
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .controls {
+        margin-top: 5px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .controls button {
+        padding: 12px 24px; /* Botones más grandes, más fáciles de presionar con el dedo */
+        font-size: 16px;
+    }
+}
+
+/* Soporte para pantallas extremadamente pequeñas (iPhone SE, etc.) */
+@media (max-width: 340px) {
+    .book-container, .book {
+        width: 280px;
+        height: 400px;
+    }
+    .countdown-container {
+        gap: 4px;
+    }
+    .time-box span {
+        font-size: 14px;
     }
 }
