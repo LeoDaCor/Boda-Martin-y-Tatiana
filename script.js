@@ -1,37 +1,44 @@
 const pages = document.querySelectorAll('.page');
 let currentPage = 0;
 
-/* Z-INDEX INICIAL */
-pages.forEach((page, index) => {
-    page.style.zIndex = pages.length - index;
-});
+/* ==========================================================================
+   1. CONTROL 3D Y FLIP DE PÁGINAS (Z-INDEX DINÁMICO)
+   ========================================================================== */
+function updateZIndex() {
+    pages.forEach((page, index) => {
+        if (index < currentPage) {
+            // Hojas ya volteadas (hacia la izquierda): se apilan secuencialmente hacia el frente
+            page.style.zIndex = index + 1;
+        } else {
+            // Hojas por voltear (hacia la derecha): se apilan de forma inversa
+            page.style.zIndex = pages.length - index;
+        }
+    });
+}
+
+// Inicializar z-index al cargar
+updateZIndex();
 
 /* AVANZAR */
 function nextPage() {
-    if (currentPage >= pages.length) {
-        return;
-    }
+    if (currentPage >= pages.length) return;
     pages[currentPage].classList.add('flipped');
-    pages[currentPage].style.zIndex = currentPage + 1;
     currentPage++;
+    updateZIndex();
 }
 
 /* RETROCEDER */
 function prevPage() {
-    if (currentPage <= 0) {
-        return;
-    }
+    if (currentPage <= 0) return;
     currentPage--;
     pages[currentPage].classList.remove('flipped');
-    pages[currentPage].style.zIndex = pages.length - currentPage;
+    updateZIndex();
 }
 
-/* CLICK SOBRE LA PÁGINA ACTUAL (Evitando botones e imágenes interactivas) */
+/* CLICK INTEGRAL SOBRE LAS HOJAS */
 pages.forEach((page, index) => {
-
     page.addEventListener('click', (e) => {
-        
-        // Si el usuario presiona un botón de acción, un pin o un enlace, NO debe pasar la página
+        // Si se interactúa con elementos específicos internos, no pasa la página
         if (
             e.target.closest('.action-buttons') || 
             e.target.closest('.country-pin') || 
@@ -43,50 +50,44 @@ pages.forEach((page, index) => {
 
         if (index === currentPage) {
             nextPage();
+        } else if (index === currentPage - 1) {
+            prevPage(); // Permite regresar haciendo clic en la hoja del lado izquierdo
         }
     });
 });
 
-/* SOPORTE TOUCH PARA LOS PINES EN CELULARES */
-// Esto permite que al tocar un pin en el celular se muestre la foto, y al tocar fuera se oculte.
+/* NAVEGACIÓN CON TECLADO */
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextPage();
+    if (e.key === 'ArrowLeft') prevPage();
+});
+
+/* ==========================================================================
+   2. MAPA INTERACTIVO (SOPORTE SMARTPHONES / TOUCH)
+   ========================================================================== */
 document.querySelectorAll('.country-pin').forEach(pin => {
     pin.addEventListener('touchstart', function(e) {
-        // Evita que el toque se propague y pase la página
-        e.stopPropagation(); 
+        e.stopPropagation(); // Previene que el toque pase la página
         
-        // Alterna una clase activa para mostrar la foto en móvil
         const tooltip = this.querySelector('.tooltip-photo');
         if(tooltip.style.transform === 'translateX(-50%) scale(1)') {
             tooltip.style.transform = 'translateX(-50%) scale(0)';
         } else {
-            // Limpiar otros pines abiertos primero
+            // Limpia otros tooltips abiertos antes de abrir este
             document.querySelectorAll('.tooltip-photo').forEach(t => t.style.transform = 'translateX(-50%) scale(0)');
             tooltip.style.transform = 'translateX(-50%) scale(1)';
         }
     });
 });
 
-// Cerrar fotos del mapa si se toca cualquier otra parte
+// Cerrar fotos flotantes si se toca fuera de los pines en móviles
 document.addEventListener('touchstart', () => {
     document.querySelectorAll('.tooltip-photo').forEach(t => t.style.transform = 'translateX(-50%) scale(0)');
 });
 
-// Si el usuario toca cualquier otro lado del mapa, se guardan las fotos flotantes
-document.addEventListener('touchstart', () => {
-    document.querySelectorAll('.tooltip-photo').forEach(t => t.style.transform = 'translateX(-50%) scale(0)');
-});
-
-/* NAVEGACIÓN CON TECLADO */
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-        nextPage();
-    }
-    if (e.key === 'ArrowLeft') {
-        prevPage();
-    }
-});
-
-/* CONTADOR REGRESIVO */
+/* ==========================================================================
+   3. CONTADOR REGRESIVO (CUENTA ATRÁS)
+   ========================================================================== */
 const weddingDate = new Date('July 25, 2026 17:00:00').getTime();
 
 function updateCountdown() {
@@ -108,9 +109,7 @@ function updateCountdown() {
 
     const setValue = (id, value) => {
         const el = document.getElementById(id);
-        if (el) {
-            el.textContent = String(value).padStart(2, '0');
-        }
+        if (el) el.textContent = String(value).padStart(2, '0');
     };
 
     setValue('days', days);
@@ -119,10 +118,13 @@ function updateCountdown() {
     setValue('seconds', seconds);
 }
 
+// Iniciar y actualizar cada segundo
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* SISTEMA DE AUDIO EXTERNO SEGMENTADO */
+/* ==========================================================================
+   4. CONTROL DE AUDIO (REPRODUCTOR EXTERNO CON BUCLE)
+   ========================================================================== */
 const audio = document.getElementById('background-music');
 const musicToggle = document.getElementById('music-toggle');
 
@@ -139,17 +141,18 @@ function toggleMusic() {
     }
 }
 
+// Controla el bucle de reproducción dentro del segmento personalizado
 audio.addEventListener('timeupdate', () => {
     if (audio.currentTime >= finSegmento) {
         audio.currentTime = inicioSegmento;
     }
 });
 
-// Activa el audio en la zona del bucle al hacer el primer toque global
+// Activa la música automáticamente al hacer el primer click en la pantalla (Políticas del Navegador)
 document.body.addEventListener('click', function() {
     if (audio.paused) {
         audio.currentTime = inicioSegmento;
-        audio.play().catch(e => console.log("Interacción requerida por el navegador"));
+        audio.play().catch(e => console.log("Se requiere interacción directa para activar música."));
         musicToggle.innerText = '🔇 Silenciar';
     }
 }, { once: true });
