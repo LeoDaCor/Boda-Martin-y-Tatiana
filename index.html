@@ -40,41 +40,53 @@
         <div class="page" onclick="turnPage(2)">
             <div class="page-face front">
                 <div class="map-wrapper">
-            <img src="mapa.png" alt="Mapa" class="map-img">
+                    <img src="mapa.png" alt="Mapa" class="map-img">
 
-            <div class="country-pin" style="top: 36.5%; left: 23.5%;">
-                <div class="tooltip-photo"><img src="estados unidos.jpg.jpeg" alt="Estados Unidos"></div>
-            </div>
+                    <div class="country-pin" style="top: 36.5%; left: 23.5%;" onclick="event.stopPropagation();">
+                        <div class="tooltip-photo">
+                            <img src="photos/estados unidos.jpg.jpeg" alt="Estados Unidos" class="zoomable-img">
+                        </div>
+                    </div>
 
-            <div class="country-pin" style="top: 42.0%; left: 21.0%;">
-                <div class="tooltip-photo"><img src="MEXICO.jpeg" alt="México"></div>
-            </div>
+                    <div class="country-pin" style="top: 42.0%; left: 21.0%;" onclick="event.stopPropagation();">
+                        <div class="tooltip-photo">
+                            <img src="photos/MEXICO.jpg.jpeg" alt="México" class="zoomable-img">
+                        </div>
+                    </div>
 
-            <div class="country-pin" style="top: 48.5%; left: 28.5%;">
-                <div class="tooltip-photo"><img src="colombia.jpg.jpeg" alt="Colombia"></div>
-            </div>
+                    <div class="country-pin" style="top: 48.5%; left: 28.5%;" onclick="event.stopPropagation();">
+                        <div class="tooltip-photo">
+                            <img src="photos/colombia.jpg.jpeg" alt="Colombia" class="zoomable-img">
+                        </div>
+                    </div>
 
-            <div class="country-pin" style="top: 52.0%; left: 36.5%;">
-                <div class="tooltip-photo"><img src="brasil.jpg.jpeg" alt="Brasil"></div>
-            </div>
+                    <div class="country-pin" style="top: 52.0%; left: 36.5%;" onclick="event.stopPropagation();">
+                        <div class="tooltip-photo">
+                            <img src="photos/brasil.jpg.jpeg" alt="Brasil" class="zoomable-img">
+                        </div>
+                    </div>
 
-            <div class="country-pin" style="top: 61.0%; left: 31.5%;">
-                <div class="tooltip-photo"><img src="argentina.jpg.jpeg" alt="Argentina"></div>
-            </div>
+                    <div class="country-pin" style="top: 61.0%; left: 31.5%;" onclick="event.stopPropagation();">
+                        <div class="tooltip-photo">
+                            <img src="photos/argentina.jpg.jpeg" alt="Argentina" class="zoomable-img">
+                        </div>
+                    </div>
 
-            <div class="country-pin" style="top: 32.5%; left: 47.0%;">
-                <div class="tooltip-photo"><img src="inglaterra.jpg.jpeg" alt="Inglaterra"></div>
-            </div>
+                    <div class="country-pin" style="top: 32.5%; left: 47.0%;" onclick="event.stopPropagation();">
+                        <div class="tooltip-photo">
+                            <img src="photos/inglaterra.jpg.jpeg" alt="Inglaterra" class="zoomable-img">
+                        </div>
+                    </div>
 
-            <div class="country-pin" style="top: 35.0%; left: 48.5%;">
-                <div class="tooltip-photo"><img src="paris.jpg.jpeg" alt="París"></div>
+                    <div class="country-pin" style="top: 35.0%; left: 48.5%;" onclick="event.stopPropagation();">
+                        <div class="tooltip-photo">
+                            <img src="photos/paris.jpg.jpeg" alt="París" class="zoomable-img">
+                        </div>
+                    </div>
+                </div> </div> <div class="page-face back">
+                <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
-    </div>
-    <div class="page-face back">
-        <img src="respaldo.jpg" alt="Reverso Pasaporte">
-    </div>
-</div>
 
         <div class="page" onclick="turnPage(3)">
             <div class="page-face front">
@@ -95,12 +107,13 @@
                         <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
                         <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
                     </div>
-                    <div class="action-buttons">
-                            <a href="https://wa.me/573244349628?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda" target="_blank" class="btn-action btn-whatsapp" title="Confirmar por WhatsApp"></a>
-                            <a href="https://instagram.com/tu_boda" target="_blank" class="btn-action btn-instagram" title="Ver Instagram"></a>
-                            <a href="mailto:tu_correo@gmail.com?subject=Confirmacion%20Boda" class="btn-action btn-mail" title="Enviar Correo"></a>
-                            <a href="https://www.google.com/maps/place/Bas%C3%ADlica+Menor+Nuestra+Se%C3%B1ora+de+Lourdes/@4.6495531,-74.0657042,17z/data=!4m10!1m2!2m1!1sparroquia+de+nuestra+se%C3%B1ora+de+lourdes!3m6!1s0x8e3f9a46507d14b7:0x28f226fc26fe6b24!8m2!3d4.6495531!4d-74.0623099!15sCidwYXJyb3F1aWEgZGUgbnVlc3RyYSBzZcOxb3JhIGRlIGxvdXJkZXNaKSIncGFycm9xdWlhIGRlIG51ZXN0cmEgc2XDsW9yYSBkZSBsb3VyZGVzkgEGY2h1cmNomgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4T2FtUXhhRlJYUjNCUFpIcEZlR1ZJUVRGVk1IZ3laVmN4ZGt4VlJSQULgAQD6AQQIABBK!16s%2Fg%2F121bk6d6?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-action btn-link" title="Ver Ubicación / Regalos"></a>
-                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="https://wa.me/573244349628?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda" target="_blank" class="btn-action btn-whatsapp" title="Confirmar por WhatsApp"></a>
+                    <a href="https://instagram.com/tu_boda" target="_blank" class="btn-action btn-instagram" title="Ver Instagram"></a>
+                    <a href="mailto:tu_correo@gmail.com?subject=Confirmacion%20Boda" class="btn-action btn-mail" title="Enviar Correo"></a>
+                    <a href="https://www.google.com/maps/place/Bas%C3%ADlica+Menor+Nuestra+Se%C3%B1ora+de+Lourdes/@4.6495531,-74.0657042,17z/data=!4m10!1m2!2m1!1sparroquia+de+nuestra+se%C3%B1ora+de+lourdes!3m6!1s0x8e3f9a46507d14b7:0x28f226fc26fe6b24!8m2!3d4.6495531!4d-74.0623099!15sCidwYXJyb3F1aWEgZGUgbnVlc3RyYSBzZcOxb3JhIGRlIGxvdXJkZXNaKSIncGFycm9xdWlhIGRlIG51ZXN0cmEgc2XDsW9yYSBkZSBsb3VyZGVzkgEGY2h1cmNomgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4T2FtUXhhRlJYUjNCUFpIcEZlR1ZJUVRGVk1IZ3laVmN4ZGt4VlJSQULgAQD6AQQIABBK!16s%2Fg%2F121bk6d6?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-action btn-link" title="Ver Ubicación / Regalos"></a>
                 </div>
             </div>
             <div class="page-face back">
@@ -108,8 +121,7 @@
             </div>
         </div>
 
-        <div class="page" onclick="turnPage(4)">
-
+        <div class="page" onclick="turnPage(5)">
             <div class="page-face front">
                 <img src="contraportada.jpg" alt="Contraportada">
             </div>
@@ -123,6 +135,28 @@
     <button onclick="nextPage()">Siguiente</button>
 </div>
 
+<div id="image-modal" class="modal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modal-img">
+</div>
+
 <script src="script.js"></script>
+
+<script>
+    document.querySelectorAll('.zoomable-img').forEach(image => {
+        image.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evita que se mueva el libro
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        });
+    });
+
+    function closeModal() {
+        document.getElementById('image-modal').style.display = "none";
+    }
+</script>
+
 </body>
 </html>
