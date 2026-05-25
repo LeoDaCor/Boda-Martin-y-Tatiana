@@ -4,185 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasaporte a Nuestra Boda - Tatiana & Martín</title>
-
     <link rel="stylesheet" href="estilo.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <audio id="background-music" loop>
+
+<audio id="background-music" loop>
     <source src="musica.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
 </audio>
 
 <button id="music-toggle" onclick="toggleMusic()">🔊 Música</button>
-    <div class="book-container">
-        <div class="book" id="passport">
 
 <div class="book-container">
-
     <div class="book" id="passport">
 
-        <!-- HOJA 1 -->
         <div class="page cover" onclick="turnPage(0)">
-
             <div class="page-face front">
                 <img src="portada.jpeg" alt="Portada">
             </div>
-
             <div class="page-face back">
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
-
         </div>
 
-        <!-- HOJA 2 -->
         <div class="page map" onclick="turnPage(1)">
-
-            <!-- DATOS -->
             <div class="page-face front">
                 <img src="datos.png" alt="Datos">
             </div>
 
-            <!-- MAPA -->
             <div class="page-face back">
-
                 <div class="map-wrapper">
-
                     <img src="mapa.png" alt="Mapa" class="map-img">
 
-                    <div class="country-pin" style="top:33.5%; left:24.5%;">
+                    <div class="country-pin" style="top: 36.5%; left: 19.5%;">
                         <div class="tooltip-photo">
                             <img src="photos/estados unidos.jpg.jpeg" alt="Estados Unidos">
                         </div>
                     </div>
 
-                    <div class="country-pin" style="top:44.5%; left:21.5%;">
+                    <div class="country-pin" style="top: 42.5%; left: 19.0%;">
                         <div class="tooltip-photo">
                             <img src="photos/MEXICO.jpg.jpeg" alt="México">
                         </div>
                     </div>
 
-                    <div class="country-pin" style="top:55%; left:32.5%;">
+                    <div class="country-pin" style="top: 49.5%; left: 27.5%;">
                         <div class="tooltip-photo">
                             <img src="photos/colombia.jpg.jpeg" alt="Colombia">
                         </div>
                     </div>
 
-                    <div class="country-pin" style="top:73.5%; left:40.5%;">
+                    <div class="country-pin" style="top: 55.0%; left: 33.5%;">
                         <div class="tooltip-photo">
                             <img src="photos/brasil.jpg.jpeg" alt="Brasil">
                         </div>
                     </div>
 
-                    <div class="country-pin" style="top:86.5%; left:36.5%;">
+                    <div class="country-pin" style="top: 61.5%; left: 29.5%;">
                         <div class="tooltip-photo">
                             <img src="photos/argentina.jpg.jpeg" alt="Argentina">
                         </div>
                     </div>
 
-                    <div class="country-pin" style="top:23%; left:47.5%;">
+                    <div class="country-pin" style="top: 33.0%; left: 47.0%;">
                         <div class="tooltip-photo">
                             <img src="photos/inglaterra.jpg.jpeg" alt="Inglaterra">
                         </div>
                     </div>
 
-                    <div class="country-pin" style="top:27.5%; left:49.5%;">
+                    <div class="country-pin" style="top: 34.8%; left: 48.5%;">
                         <div class="tooltip-photo">
                             <img src="photos/paris.jpg.jpeg" alt="París">
                         </div>
                     </div>
 
                 </div>
-
             </div>
-
         </div>
 
-        <!-- HOJA 3 -->
         <div class="page confirmation" onclick="turnPage(2)">
-
-            <!-- SELLOS -->
             <div class="page-face front">
                 <img src="sellos.png" alt="Sellos">
             </div>
-
-            <!-- CONFIRMACIÓN -->
             <div class="page-face back">
-
                 <div class="countdown-wrapper">
-
                     <img src="confirmacion.png" alt="Confirmación">
-
                     <div id="countdown" class="countdown-container">
-
                         <div class="time-box">
                             <span id="days">00</span>
                             <small>Días</small>
                         </div>
-
                         <div class="time-box">
                             <span id="hours">00</span>
                             <small>Hrs</small>
                         </div>
-
                         <div class="time-box">
                             <span id="minutes">00</span>
                             <small>Min</small>
                         </div>
-
                         <div class="time-box">
                             <span id="seconds">00</span>
                             <small>Seg</small>
                         </div>
-
                     </div>
 
                     <div class="action-buttons">
-
-                        <a href="https://wa.me/573000000000?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda"
-                           target="_blank"
-                           class="btn-action btn-whatsapp">
-                        </a>
-
-                        <a href="https://instagram.com/tu_boda"
-                           target="_blank"
-                           class="btn-action btn-instagram">
-                        </a>
-
-                        <a href="mailto:tu_correo@gmail.com?subject=Confirmacion%20Boda"
-                           class="btn-action btn-mail">
-                        </a>
-
-                        <a href="https://maps.google.com"
-                           target="_blank"
-                           class="btn-action btn-link">
-                        </a>
-
+                        <a href="https://wa.me/573000000000?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda" target="_blank" class="btn-action btn-whatsapp"></a>
+                        <a href="https://instagram.com/tu_boda" target="_blank" class="btn-action btn-instagram"></a>
+                        <a href="mailto:tu_correo@gmail.com?subject=Confirmacion%20Boda" class="btn-action btn-mail"></a>
+                        <a href="https://maps.google.com" target="_blank" class="btn-action btn-link"></a>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
-        <!-- HOJA 4 -->
         <div class="page last-page" onclick="turnPage(3)">
-
-            <!-- CONTRAPORTADA -->
             <div class="page-face front">
                 <img src="respaldo.jpg" alt="">
             </div>
-
-            <!-- FINAL -->
             <div class="page-face back">
                 <img src="contraportada.jpg" alt="Contraportada">
             </div>
-
         </div>
 
     </div>
-
 </div>
 
 <div class="controls">
@@ -191,6 +137,5 @@
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
