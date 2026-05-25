@@ -49,7 +49,7 @@ body {
     cursor: pointer;
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 1.2s cubic-bezier(.2, 1, .3, 1), z-index .1s;
+    transition: transform 1.2s cubic-bezier(.2, 1, .3, 1);
 }
 
 /* CARAS DE LAS HOJAS */
@@ -70,7 +70,7 @@ body {
     object-fit: cover;
 }
 
-/* GIROS */
+/* GIROS Y REVERSO */
 .page-face.back {
     transform: rotateY(180deg);
 }
@@ -161,7 +161,7 @@ body {
 }
 
 /* ==========================================================================
-   4. CONTADOR REGRESIVO Y CONTENEDORES INTERNOS
+   4. CONTADOR REGRESIVO Y CONTENEDORES INTERNOS (CONFIRMACIÓN)
    ========================================================================== */
 .countdown-wrapper {
     position: relative;
@@ -229,7 +229,7 @@ body {
     display: block;
     cursor: pointer;
     transition: .3s;
-    background-color: #ffffff00; /* Color base temporal si no hay imagen */
+    background-color: #ffffff00;
 }
 
 .btn-action:hover {
@@ -285,15 +285,13 @@ body {
    ========================================================================== */
 @media (max-width: 900px) {
     body {
-        /* Un poco de padding arriba/abajo para que respire en celulares */
         padding: 60px 10px 20px 10px; 
         justify-content: flex-start;
     }
 
-    /* Redimensionamos el contenedor basado en una sola página vertical */
     .book-container {
-        width: 320px;   /* Ancho estándar ideal para celulares */
-        height: 457px;  /* Mantiene la proporción original (840x600) */
+        width: 320px;   
+        height: 457px;  
         perspective: 1500px;
         margin-bottom: 10px;
     }
@@ -303,26 +301,23 @@ body {
         height: 457px;
     }
 
-    /* Modificamos el origen de la animación para que gire sobre su propio eje central 
-       o simule un cuaderno en pantallas pequeñas */
     .page {
         transform-origin: left center;
     }
 
-    /* --- Ajustes del Mapa en Celulares --- */
+    /* Ajustes del Mapa en Celulares */
     .country-pin {
-        width: 14px;  /* Pines ligeramente más pequeños */
+        width: 14px;  
         height: 14px;
     }
 
-    /* Hacemos que los Tooltips (fotos) reaccionen al toque (touch) */
     .tooltip-photo {
         width: 110px;
         height: 80px;
         bottom: 22px;
     }
 
-    /* --- Ajustes de la sección Confirmación --- */
+    /* Ajustes de la sección Confirmación */
     .countdown-container {
         width: 90%;
         top: 50%;
@@ -343,7 +338,7 @@ body {
     }
 
     .action-buttons {
-        top: 15px; /* Subimos un poco los botones para que no pisen el contador */
+        top: 15px; 
         gap: 15px;
     }
 
@@ -352,7 +347,7 @@ body {
         height: 38px;
     }
 
-    /* --- Interfaz General Móvil --- */
+    /* Interfaz General Móvil */
     #music-toggle {
         top: 10px;
         right: 10px;
@@ -369,12 +364,12 @@ body {
     }
     
     .controls button {
-        padding: 12px 24px; /* Botones más grandes, más fáciles de presionar con el dedo */
+        padding: 12px 24px; 
         font-size: 16px;
     }
 }
 
-/* Soporte para pantallas extremadamente pequeñas (iPhone SE, etc.) */
+/* Soporte para pantallas extremadamente pequeñas */
 @media (max-width: 340px) {
     .book-container, .book {
         width: 280px;
