@@ -35,7 +35,7 @@ function prevPage() {
     updateZIndex();
 }
 
-/* CLICK INTEGRAL SOBRE LAS HOJAS */
+/* CLICK INTEGRAL SOBRE LAS HOJAS 
 pages.forEach((page, index) => {
     page.addEventListener('click', (e) => {
         // Si se interactúa con elementos específicos internos, no pasa la página
@@ -54,7 +54,7 @@ pages.forEach((page, index) => {
             prevPage(); // Permite regresar haciendo clic en la hoja del lado izquierdo
         }
     });
-});
+}); */
 
 /* NAVEGACIÓN CON TECLADO */
 document.addEventListener('keydown', (e) => {
