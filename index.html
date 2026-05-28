@@ -8,17 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <audio id="background-music" loop>
     <source src="musica.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
 </audio>
-
 <button id="music-toggle" onclick="toggleMusic()">🔊 Música</button>
-
 <div class="book-container">
     <div class="book" id="passport">
-
         <div class="page" onclick="turnPage(0)">
             <div class="page-face front">
                 <img src="portada.jpeg" alt="Portada">
@@ -27,7 +23,6 @@
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
-
         <div class="page" onclick="turnPage(1)">
             <div class="page-face front">
                 <img src="datos.png" alt="Datos">
@@ -36,18 +31,15 @@
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
-
         <div class="page" onclick="turnPage(2)">
             <div class="page-face front">
                 <div class="map-wrapper">
                     <img src="mapa.png" alt="Mapa" class="map-img">
-
                     <div class="country-pin" style="top: 36.5%; left: 23.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
                             <img src="estados unidos.jpg.jpeg" alt="Estados Unidos" class="zoomable-img">
                         </div>
                     </div>
-
                     <div class="country-pin" style="top: 41.0%; left: 18.0%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
                             <img src="MEXICO.jpeg" alt="México" class="zoomable-img">
@@ -83,30 +75,25 @@
                             <img src="paris.jpg.jpeg" alt="París" class="zoomable-img">
                         </div>
                     </div>
-
                     <div class="country-pin" style="top: 41.5%; left: 22.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
                             <img src="punta cana.jpeg" alt="Punta Cana" class="zoomable-img">
                         </div>
                     </div>
-
                     <div class="country-pin" style="top: 37.5%; left: 41.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
                             <img src="madrid.jpeg" alt="Madrid" class="zoomable-img">
                         </div>
                     </div>
-
                     <div class="country-pin" style="top: 40.5%; left: 42.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
                             <img src="londres.jpeg" alt="Londres" class="zoomable-img">
                         </div>
                     </div>
-                    
                 </div> </div> <div class="page-face back">
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
-
         <div class="page" onclick="turnPage(3)">
             <div class="page-face front">
                 <img src="sellos.png" alt="Sellos">
@@ -115,7 +102,6 @@
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
-
         <div class="page" onclick="turnPage(4)">
             <div class="page-face front">
                 <div class="countdown-wrapper">
@@ -127,21 +113,17 @@
                         <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
                     </div>
                 </div>
-
                 <div class="attendance-form-container">
                     <form action="https://docs.google.com/forms/d/e/1FAIpQLSf6OpJVvfKaNXYJwVbVCvkvxnFrpd4AufaMUZKKXnCIJi7Kew/formResponse" method="POST" class="wedding-form" target="_blank">
                         <h3 class="form-title">Confirma tu Asistencia</h3>
-        
                         <div class="form-group">
                             <label for="guest-name">Nombre Completo:</label>
                             <input type="text" id="guest-name" name="entry.438881105" placeholder="Ej. Juan Pérez" required>
                         </div>
-
                         <div class="form-group">
                             <label for="guest-email">Correo Electrónico:</label>
                             <input type="email" id="guest-email" name="entry.434997503" placeholder="ejemplo@correo.com" required>
                         </div>
-
                         <div class="form-group">
                             <label for="attendance-status">¿Podrás asistir?</label>
                             <select id="attendance-status" name="entry.998670049" required>
@@ -150,19 +132,16 @@
                                 <option value="Lo siento, no podré asistir">Lo siento, no podré asistir</option>
                             </select>
                         </div>
-
                         <div class="form-actions">
                             <button type="submit" class="btn-submit">Confirmar Asistencia</button>
                         </div>
                     </form>
                 </div>
             </div>
-
             <div class="page-face back">
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
-
         <div class="page" onclick="turnPage(5)">
             <div class="page-face front">
                 <img src="contraportada.jpg" alt="Contraportada">
@@ -171,19 +150,15 @@
 
     </div>
 </div>
-
 <div class="controls">
     <button onclick="prevPage()">Anterior</button>
     <button onclick="nextPage()">Siguiente</button>
 </div>
-
 <div id="image-modal" class="modal" onclick="closeModal()">
     <span class="modal-close">&times;</span>
     <img class="modal-content" id="modal-img">
 </div>
-
 <script src="script.js"></script>
-
 <script>
     document.querySelectorAll('.zoomable-img').forEach(image => {
         image.addEventListener('click', function(e) {
@@ -194,13 +169,6 @@
             modalImg.src = this.src;
         });
     });
-    <div class="action-buttons">
-        <a href="https://wa.me/573244349628?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda" target="_blank" class="btn-action btn-whatsapp" title="Confirmar por WhatsApp"></a>
-        <a href="https://instagram.com/tu_boda" target="_blank" class="btn-action btn-instagram" title="Ver Instagram"></a>
-        <a href="mailto:tu_correo@gmail.com?subject=Confirmacion%20Boda" class="btn-action btn-mail" title="Enviar Correo"></a>
-        <a href="https://www.google.com/maps/place/Bas%C3%ADlica+Menor+Nuestra+Se%C3%B1ora+de+Lourdes/@4.6495531,-74.0657042,17z/data=!4m10!1m2!2m1!1sparroquia+de+nuestra+se%C3%B1ora+de+lourdes!3m6!1s0x8e3f9a46507d14b7:0x28f226fc26fe6b24!8m2!3d4.6495531!4d-74.0623099!15sCidwYXJyb3F1aWEgZGUgbnVlc3RyYSBzZcOxb3JhIGRlIGxvdXJkZXNaKSIncGFycm9xdWlhIGRlIG51ZXN0cmEgc2XDsW9yYSBkZSBsb3VyZGVzkgEGY2h1cmNomgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4T2FtUXhhRlJYUjNCUFpIcEZlR1ZJUVRGVk1IZ3laVmN4ZGt4VlJSQULgAQD6AQQIABBK!16s%2Fg%2F121bk6d6?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-action btn-link" title="Ver Ubicación / Regalos"></a>
-    /div>
-
     function closeModal() {
         document.getElementById('image-modal').style.display = "none";
     }
