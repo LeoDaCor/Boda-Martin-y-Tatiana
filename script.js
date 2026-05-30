@@ -35,26 +35,14 @@ function prevPage() {
     updateZIndex();
 }
 
-/* CLICK INTEGRAL SOBRE LAS HOJAS
-pages.forEach((page, index) => {
-    page.addEventListener('click', (e) => {
-        // Si se interactúa con elementos específicos internos, no pasa la página
-        if (
-            e.target.closest('.action-buttons') || 
-            e.target.closest('.country-pin') || 
-            e.target.closest('button') || 
-            e.target.closest('a')
-        ) {
-            return; 
-        }
-
-        if (index === currentPage) {
-            nextPage();
-        } else if (index === currentPage - 1) {
-            prevPage(); // Permite regresar haciendo clic en la hoja del lado izquierdo
-        }
-    });
-});
+/* FUNCIÓN DE CLICK INTERNO EN LAS HOJAS */
+function turnPage(index) {
+    if (index === currentPage) {
+        nextPage();
+    } else if (index === currentPage - 1) {
+        prevPage(); // Regresar si se hace click en la hoja izquierda activa
+    }
+}
 
 /* NAVEGACIÓN CON TECLADO */
 document.addEventListener('keydown', (e) => {
@@ -81,8 +69,10 @@ document.querySelectorAll('.country-pin').forEach(pin => {
 });
 
 // Cerrar fotos flotantes si se toca fuera de los pines en móviles
-document.addEventListener('touchstart', () => {
-    document.querySelectorAll('.tooltip-photo').forEach(t => t.style.transform = 'translateX(-50%) scale(0)');
+document.addEventListener('touchstart', (e) => {
+    if (!e.target.closest('.country-pin')) {
+        document.querySelectorAll('.tooltip-photo').forEach(t => t.style.transform = 'translateX(-50%) scale(0)');
+    }
 });
 
 /* ==========================================================================
