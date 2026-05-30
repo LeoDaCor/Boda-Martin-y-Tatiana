@@ -8,13 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <audio id="background-music" loop>
     <source src="musica.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
 </audio>
+
 <button id="music-toggle" onclick="toggleMusic()">🔊 Música</button>
+
 <div class="book-container">
     <div class="book" id="passport">
+
         <div class="page" onclick="turnPage(0)">
             <div class="page-face front">
                 <img src="portada.jpeg" alt="Portada">
@@ -23,6 +27,7 @@
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
+
         <div class="page" onclick="turnPage(1)">
             <div class="page-face front">
                 <img src="datos.png" alt="Datos">
@@ -31,94 +36,109 @@
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
+
         <div class="page" onclick="turnPage(2)">
             <div class="page-face front">
                 <div class="map-wrapper">
                     <img src="mapa.png" alt="Mapa" class="map-img">
+
                     <div class="country-pin" style="top: 36.5%; left: 23.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="estados unidos.jpg.jpeg" alt="Estados Unidos" class="zoomable-img">
+                            <img src="photos/estados unidos.jpg.jpeg" alt="Estados Unidos" class="zoomable-img">
                         </div>
                     </div>
+
                     <div class="country-pin" style="top: 41.0%; left: 18.0%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="MEXICO.jpeg" alt="México" class="zoomable-img">
+                            <img src="photos/MEXICO.jpg.jpeg" alt="México" class="zoomable-img">
                         </div>
                     </div>
 
                     <div class="country-pin" style="top: 44.5%; left: 21.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="colombia.jpg.jpeg" alt="Colombia" class="zoomable-img">
+                            <img src="photos/colombia.jpg.jpeg" alt="Colombia" class="zoomable-img">
                         </div>
                     </div>
 
                     <div class="country-pin" style="top: 50.0%; left: 28.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="brasil.jpg.jpeg" alt="Brasil" class="zoomable-img">
+                            <img src="photos/brasil.jpg.jpeg" alt="Brasil" class="zoomable-img">
                         </div>
                     </div>
 
                     <div class="country-pin" style="top: 54.0%; left: 25.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="argentina.jpg.jpeg" alt="Argentina" class="zoomable-img">
+                            <img src="photos/argentina.jpg.jpeg" alt="Argentina" class="zoomable-img">
                         </div>
                     </div>
 
                     <div class="country-pin" style="top: 32.5%; left: 47.0%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="inglaterra.jpg.jpeg" alt="Inglaterra" class="zoomable-img">
+                            <img src="photos/inglaterra.jpg.jpeg" alt="Inglaterra" class="zoomable-img">
                         </div>
                     </div>
 
                     <div class="country-pin" style="top: 37.0%; left: 46.0%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="paris.jpg.jpeg" alt="París" class="zoomable-img">
+                            <img src="photos/paris.jpg.jpeg" alt="París" class="zoomable-img">
                         </div>
                     </div>
+
                     <div class="country-pin" style="top: 41.5%; left: 22.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="punta cana.jpeg" alt="Punta Cana" class="zoomable-img">
+                            <img src="photos/punta cana.jpeg" alt="París" class="zoomable-img">
                         </div>
                     </div>
+
                     <div class="country-pin" style="top: 37.5%; left: 38.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="madrid.jpeg" alt="Madrid" class="zoomable-img">
+                            <img src="photos/madrid.jpeg" alt="Madrid" class="zoomable-img">
                         </div>
                     </div>
+
                     <div class="country-pin" style="top: 40.5%; left: 42.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="londres.jpeg" alt="Londres" class="zoomable-img">
+                            <img src="photos/londres.jpeg" alt="Londres" class="zoomable-img">
                         </div>
                     </div>
-                    <div class="country-pin" style="top: 36.5%; left: 42.5%;" onclick="event.stopPropagation();">
+
+                    <div class="country-pin" style="top: 36.5%; left: 42.0%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="alemania.jpeg" alt="Alemania" class="zoomable-img">
+                            <img src="photos/alemania.jpeg" alt="Alemania" class="zoomable-img">
                         </div>
                     </div>
+                    
                     <div class="country-pin" style="top: 38.5%; left: 80.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="corea.jpeg" alt="Corea" class="zoomable-img">
+                            <img src="photos/corea.jpeg" alt="Corea" class="zoomable-img">
                         </div>
                     </div>
+
                     <div class="country-pin" style="top: 40.5%; left: 60.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="dubai.jpeg" alt="Dubai" class="zoomable-img">
+                            <img src="photos/dubai.jpeg" alt="Dubai" class="zoomable-img">
                         </div>
                     </div>
+
                     <div class="country-pin" style="top: 38.0%; left: 77.0%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="seoul.jpeg" alt="Seoul" class="zoomable-img">
+                            <img src="photos/seoul.jpeg" alt="Seoul" class="zoomable-img">
                         </div>
                     </div>
+
                     <div class="country-pin" style="top: 37.5%; left: 50.5%;" onclick="event.stopPropagation();">
                         <div class="tooltip-photo">
-                            <img src="turkia.jpeg" alt="Turquia" class="zoomable-img">
+                            <img src="photos/turkia.jpeg" alt="Turquia" class="zoomable-img">
                         </div>
                     </div>
-                </div> </div> <div class="page-face back">
+
+                </div> 
+            </div> 
+            <div class="page-face back">
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
+
         <div class="page" onclick="turnPage(3)">
             <div class="page-face front">
                 <img src="sellos.png" alt="Sellos">
@@ -127,10 +147,20 @@
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
+
         <div class="page" onclick="turnPage(4)">
             <div class="page-face front">
+                <img src="lluvia.jpeg" alt="Lluvia">
+            </div>
+            <div class="page-face back">
+                <img src="respaldo.jpg" alt="Reverso Pasaporte">
+            </div>
+        </div>
+
+        <div class="page" onclick="turnPage(5)">
+            <div class="page-face front">
                 <div class="countdown-wrapper">
-                    <img src="confirmacion.png" alt="Confirmación">
+                    <img src="final.jpeg" alt="Confirmación">
                     <div class="countdown-container">
                         <div class="time-box"><span id="days">00</span><small>Días</small></div>
                         <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
@@ -138,17 +168,21 @@
                         <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
                     </div>
                 </div>
+
                 <div class="attendance-form-container">
                     <form action="https://docs.google.com/forms/d/e/1FAIpQLSf6OpJVvfKaNXYJwVbVCvkvxnFrpd4AufaMUZKKXnCIJi7Kew/formResponse" method="POST" class="wedding-form" target="_blank">
-                        <h3 class="form-title">Confirma tu Asistencia</h3>
+                        <h3 class="form-title">Confirmación de Asistencia</h3>
+        
                         <div class="form-group">
                             <label for="guest-name">Nombre Completo:</label>
                             <input type="text" id="guest-name" name="entry.438881105" placeholder="Ej. Juan Pérez" required>
                         </div>
+
                         <div class="form-group">
                             <label for="guest-email">Correo Electrónico:</label>
                             <input type="email" id="guest-email" name="entry.434997503" placeholder="ejemplo@correo.com" required>
                         </div>
+
                         <div class="form-group">
                             <label for="attendance-status">¿Podrás asistir?</label>
                             <select id="attendance-status" name="entry.998670049" required>
@@ -157,17 +191,20 @@
                                 <option value="Lo siento, no podré asistir">Lo siento, no podré asistir</option>
                             </select>
                         </div>
+
                         <div class="form-actions">
                             <button type="submit" class="btn-submit">Confirmar Asistencia</button>
                         </div>
                     </form>
                 </div>
             </div>
+
             <div class="page-face back">
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
-        <div class="page" onclick="turnPage(5)">
+
+        <div class="page" onclick="turnPage(6)">
             <div class="page-face front">
                 <img src="contraportada.jpg" alt="Contraportada">
             </div>
@@ -175,29 +212,34 @@
 
     </div>
 </div>
+
 <div class="controls">
     <button onclick="prevPage()">Anterior</button>
     <button onclick="nextPage()">Siguiente</button>
 </div>
+
 <div id="image-modal" class="modal" onclick="closeModal()">
     <span class="modal-close">&times;</span>
     <img class="modal-content" id="modal-img">
 </div>
+
 <script src="script.js"></script>
+
 <script>
+    // Modal para hacer zoom a las fotos de los pines del mapa
     document.querySelectorAll('.zoomable-img').forEach(image => {
         image.addEventListener('click', function(e) {
-            e.stopPropagation(); // Evita que se mueva el libro
+            e.stopPropagation(); // Evita que se pase la página al hacer click en la foto
             const modal = document.getElementById('image-modal');
             const modalImg = document.getElementById('modal-img');
             modal.style.display = "flex";
             modalImg.src = this.src;
         });
     });
+
     function closeModal() {
         document.getElementById('image-modal').style.display = "none";
     }
-    
 </script>
 
 </body>
