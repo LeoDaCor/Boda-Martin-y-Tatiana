@@ -7,10 +7,8 @@ let currentPage = 0;
 function updateZIndex() {
     pages.forEach((page, index) => {
         if (index < currentPage) {
-            // Hojas ya volteadas (hacia la izquierda): se apilan secuencialmente hacia el frente
             page.style.zIndex = index + 1;
         } else {
-            // Hojas por voltear (hacia la derecha): se apilan de forma inversa
             page.style.zIndex = pages.length - index;
         }
     });
@@ -19,7 +17,7 @@ function updateZIndex() {
 // Inicializar z-index al cargar
 updateZIndex();
 
-/* AVANZAR */
+/* AVANZAR (Activado únicamente por el botón Siguiente o Teclado) */
 function nextPage() {
     if (currentPage >= pages.length) return;
     pages[currentPage].classList.add('flipped');
@@ -27,21 +25,12 @@ function nextPage() {
     updateZIndex();
 }
 
-/* RETROCEDER */
+/* RETROCEDER (Activado únicamente por el botón Anterior o Teclado) */
 function prevPage() {
     if (currentPage <= 0) return;
     currentPage--;
     pages[currentPage].classList.remove('flipped');
     updateZIndex();
-}
-
-/* FUNCIÓN DE CLICK INTERNO EN LAS HOJAS */
-function turnPage(index) {
-    if (index === currentPage) {
-        nextPage();
-    } else if (index === currentPage - 1) {
-        prevPage(); // Regresar si se hace click en la hoja izquierda activa
-    }
 }
 
 /* NAVEGACIÓN CON TECLADO */
@@ -51,28 +40,35 @@ document.addEventListener('keydown', (e) => {
 });
 
 /* ==========================================================================
-   2. MAPA INTERACTIVO (SOPORTE SMARTPHONES / TOUCH)
+   2. MAPA INTERACTIVO (APERTURA DIRECTA A PANTALLA COMPLETA)
    ========================================================================== */
-document.querySelectorAll('.country-pin').forEach(pin => {
-    pin.addEventListener('touchstart', function(e) {
-        e.stopPropagation(); // Previene que el toque pase la página
-        
-        const tooltip = this.querySelector('.tooltip-photo');
-        if(tooltip.style.transform === 'translateX(-50%) scale(1)') {
-            tooltip.style.transform = 'translateX(-50%) scale(0)';
-        } else {
-            // Limpia otros tooltips abiertos antes de abrir este
-            document.querySelectorAll('.tooltip-photo').forEach(t => t.style.transform = 'translateX(-50%) scale(0)');
-            tooltip.style.transform = 'translateX(-50%) scale(1)';
-        }
-    });
-});
+const modal = document.getElementById('image-modal');
+const modalImg = document.getElementById('modal-img');
 
-// Cerrar fotos flotantes si se toca fuera de los pines en móviles
-document.addEventListener('touchstart', (e) => {
-    if (!e.target.closest('.country-pin')) {
-        document.querySelectorAll('.tooltip-photo').forEach(t => t.style.transform = 'translateX(-50%) scale(0)');
+function abrirFotoPin(e, pin) {
+    e.stopPropagation(); // Evita interferencias con otros elementos
+    const rutaImagen = pin.getAttribute('data-img');
+    
+    if (rutaImagen) {
+        modal.style.display = "flex";
+        modalImg.src = rutaImagen;
     }
+}
+
+function closeModal() {
+    modal.style.display = "none";
+    modalImg.src = "";
+}
+
+// Asignar eventos a los pines tanto para PC (click) como para Móviles (touchstart)
+document.querySelectorAll('.country-pin').forEach(pin => {
+    pin.addEventListener('click', function(e) {
+        abrirFotoPin(e, this);
+    });
+
+    pin.addEventListener('touchstart', function(e) {
+        abrirFotoPin(e, this);
+    }, { passive: true });
 });
 
 /* ==========================================================================
@@ -108,7 +104,6 @@ function updateCountdown() {
     setValue('seconds', seconds);
 }
 
-// Iniciar y actualizar cada segundo
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
@@ -131,18 +126,16 @@ function toggleMusic() {
     }
 }
 
-// Controla el bucle de reproducción dentro del segmento personalizado
 audio.addEventListener('timeupdate', () => {
     if (audio.currentTime >= finSegmento) {
         audio.currentTime = inicioSegmento;
     }
 });
 
-// Activa la música automáticamente al hacer el primer click en la pantalla (Políticas del Navegador)
 document.body.addEventListener('click', function() {
     if (audio.paused) {
         audio.currentTime = inicioSegmento;
-        audio.play().catch(e => console.log("Se requiere interacción directa para activar música."));
+        audio.play().catch(e => console.log("Interacción requerida para el audio."));
         musicToggle.innerText = '🔇 Silenciar';
     }
 }, { once: true });
