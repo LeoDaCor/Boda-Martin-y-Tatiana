@@ -19,7 +19,7 @@
 <div class="book-container">
     <div class="book" id="passport">
 
-        <div class="page" onclick="turnPage(0)">
+        <div class="page">
             <div class="page-face front">
                 <img src="portada.jpeg" alt="Portada">
             </div>
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="page" onclick="turnPage(1)">
+        <div class="page">
             <div class="page-face front">
                 <img src="datos.png" alt="Datos">
             </div>
@@ -37,100 +37,26 @@
             </div>
         </div>
 
-        <div class="page" onclick="turnPage(2)">
+        <div class="page">
             <div class="page-face front">
                 <div class="map-wrapper">
                     <img src="mapa.png" alt="Mapa" class="map-img">
 
-                    <div class="country-pin" style="top: 36.5%; left: 23.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="estados unidos.jpg.jpeg" alt="Estados Unidos" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 41.0%; left: 18.0%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="MEXICO.jpeg" alt="México" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 44.5%; left: 21.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="colombia.jpg.jpeg" alt="Colombia" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 50.0%; left: 28.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="brasil.jpg.jpeg" alt="Brasil" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 54.0%; left: 25.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="argentina.jpg.jpeg" alt="Argentina" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 32.5%; left: 47.0%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="inglaterra.jpg.jpeg" alt="Inglaterra" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 37.0%; left: 46.0%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="paris.jpg.jpeg" alt="París" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 41.5%; left: 22.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="punta cana.jpeg" alt="París" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 37.5%; left: 38.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="madrid.jpeg" alt="Madrid" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 40.5%; left: 42.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="londres.jpeg" alt="Londres" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 36.5%; left: 42.0%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="alemania.jpeg" alt="Alemania" class="zoomable-img">
-                        </div>
-                    </div>
-                    
-                    <div class="country-pin" style="top: 38.5%; left: 80.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="corea.jpeg" alt="Corea" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 40.5%; left: 60.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="dubai.jpeg" alt="Dubai" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 38.0%; left: 77.0%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="seoul.jpeg" alt="Seoul" class="zoomable-img">
-                        </div>
-                    </div>
-
-                    <div class="country-pin" style="top: 37.5%; left: 50.5%;" onclick="event.stopPropagation();">
-                        <div class="tooltip-photo">
-                            <img src="turkia.jpeg" alt="Turquia" class="zoomable-img">
-                        </div>
-                    </div>
+                    <div class="country-pin" style="top: 36.5%; left: 23.5%;" data-img="estados unidos.jpg.jpeg"></div>
+                    <div class="country-pin" style="top: 41.0%; left: 18.0%;" data-img="MEXICO.jpeg"></div>
+                    <div class="country-pin" style="top: 44.5%; left: 21.5%;" data-img="colombia.jpg.jpeg"></div>
+                    <div class="country-pin" style="top: 50.0%; left: 28.5%;" data-img="brasil.jpg.jpeg"></div>
+                    <div class="country-pin" style="top: 54.0%; left: 25.5%;" data-img="argentina.jpg.jpeg"></div>
+                    <div class="country-pin" style="top: 32.5%; left: 47.0%;" data-img="inglaterra.jpg.jpeg"></div>
+                    <div class="country-pin" style="top: 37.0%; left: 46.0%;" data-img="paris.jpg.jpeg"></div>
+                    <div class="country-pin" style="top: 41.5%; left: 22.5%;" data-img="punta cana.jpeg"></div>
+                    <div class="country-pin" style="top: 37.5%; left: 38.5%;" data-img="madrid.jpeg"></div>
+                    <div class="country-pin" style="top: 40.5%; left: 42.5%;" data-img="londres.jpeg"></div>
+                    <div class="country-pin" style="top: 36.5%; left: 42.0%;" data-img="alemania.jpeg"></div>
+                    <div class="country-pin" style="top: 38.5%; left: 80.5%;" data-img="corea.jpeg"></div>
+                    <div class="country-pin" style="top: 40.5%; left: 60.5%;" data-img="dubai.jpeg"></div>
+                    <div class="country-pin" style="top: 38.0%; left: 77.0%;" data-img="seoul.jpeg"></div>
+                    <div class="country-pin" style="top: 37.5%; left: 50.5%;" data-img="turkia.jpeg"></div>
 
                 </div> 
             </div> 
@@ -139,7 +65,7 @@
             </div>
         </div>
 
-        <div class="page" onclick="turnPage(3)">
+        <div class="page">
             <div class="page-face front">
                 <img src="sellos.png" alt="Sellos">
             </div>
@@ -148,16 +74,16 @@
             </div>
         </div>
 
-        <div class="page" onclick="turnPage(4)">
+        <div class="page">
             <div class="page-face front">
-                <img src="lluvia.jpeg" alt="Lluvia">
+                <img src="lluvia.png" alt="Lluvia">
             </div>
             <div class="page-face back">
                 <img src="respaldo.jpg" alt="Reverso Pasaporte">
             </div>
         </div>
 
-        <div class="page" onclick="turnPage(5)">
+        <div class="page">
             <div class="page-face front">
                 <div class="countdown-wrapper">
                     <img src="final.jpeg" alt="Confirmación">
@@ -204,7 +130,7 @@
             </div>
         </div>
 
-        <div class="page" onclick="turnPage(6)">
+        <div class="page">
             <div class="page-face front">
                 <img src="contraportada.jpg" alt="Contraportada">
             </div>
@@ -219,28 +145,11 @@
 </div>
 
 <div id="image-modal" class="modal" onclick="closeModal()">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modal-img">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img" onclick="event.stopPropagation();">
 </div>
 
 <script src="script.js"></script>
-
-<script>
-    // Modal para hacer zoom a las fotos de los pines del mapa
-    document.querySelectorAll('.zoomable-img').forEach(image => {
-        image.addEventListener('click', function(e) {
-            e.stopPropagation(); // Evita que se pase la página al hacer click en la foto
-            const modal = document.getElementById('image-modal');
-            const modalImg = document.getElementById('modal-img');
-            modal.style.display = "flex";
-            modalImg.src = this.src;
-        });
-    });
-
-    function closeModal() {
-        document.getElementById('image-modal').style.display = "none";
-    }
-</script>
 
 </body>
 </html>
